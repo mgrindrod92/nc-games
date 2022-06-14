@@ -10,10 +10,10 @@ export function FetchReviews() {
 
 export function FetchCategories() {
     return axios
-    .get("https://nc-be-games-project.herokuapp.com/api/categories")
-    .then((res) => {
+        .get("https://nc-be-games-project.herokuapp.com/api/categories")
+        .then((res) => {
 
-        // console.log(res.data)
-        return res.data;
-    })
+            // console.log(res.data)
+            return res.data;
+        })
 }
