@@ -7,3 +7,13 @@ export function FetchReviews() {
             return res.data;
         })
 }
+
+export function FetchCategories() {
+    return axios
+    .get("https://nc-be-games-project.herokuapp.com/api/categories")
+    .then((res) => {
+
+        // console.log(res.data)
+        return res.data;
+    })
+}
