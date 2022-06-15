@@ -1,19 +1,22 @@
 import axios from 'axios';
 
-export function FetchReviews() {
-    return axios
-        .get("https://nc-be-games-project.herokuapp.com/api/reviews")
-        .then((res) => {
-            return res.data;
+const gamesAPI = axios.create({
+    baseURL: 'https://nc-be-games-project.herokuapp.com/api'
+})
+
+export function FetchReviews(category) {
+    return gamesAPI
+        .get("/reviews", {params: {category}})
+        .then(( { data } ) => {
+            return data.reviews;
         })
 }
 
 export function FetchCategories() {
-    return axios
-        .get("https://nc-be-games-project.herokuapp.com/api/categories")
-        .then((res) => {
+    return gamesAPI
+        .get("/categories")
+        .then(( { data } ) => {
 
-            // console.log(res.data)
-            return res.data;
+            return data.categories;
         })
 }

@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path={'/'} element={<Homepage />} />
           <Route path={'/reviews'} element={<Reviews />} />
-          <Route path={'/categories'} element={<Categories />} />
+          <Route path={'/reviews/:category_name'} element={<Reviews />} />
         </Routes>
 
     </div>
