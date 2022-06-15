@@ -6,6 +6,7 @@ import Header from "./Components/Header";
 import Navbar from './Components/Navbar';
 import Homepage from "./Components/Homepage"
 import Reviews from "./Components/Reviews"
+import Categories from './Components/Categories';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path={'/'} element={<Homepage />} />
           <Route path={'/reviews'} element={<Reviews />} />
+          <Route path={'/reviews/:category_name'} element={<Reviews />} />
         </Routes>
 
     </div>

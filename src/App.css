@@ -15,6 +15,11 @@
   object-fit: cover;
 }
 
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -75,4 +80,13 @@
   color: cornflowerblue;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.categories {
+  text-transform: capitalize;
+  list-style: none;
+}
+
+.navigationPoints {
+  list-style: none;
 }
