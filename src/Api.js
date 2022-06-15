@@ -12,6 +12,15 @@ export function FetchReviews(category) {
         })
 }
 
+export function FetchSingleReview(id) {
+    return gamesAPI
+    .get(`/reviews/${id}`)
+    .then((res) => {
+        console.log(res);
+        return res;
+    })
+}
+
 export function FetchCategories() {
     return gamesAPI
         .get("/categories")

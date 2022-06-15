@@ -29,6 +29,7 @@ const Navbar = () => {
             <li><Link to="/reviews" className="nav__link">
                 Game Reviews
             </Link> </li>
+            {/* Add styling to make this clearer? */}
             <li><div>All Categories</div>
             <Categories categories={categories} />
              </li>

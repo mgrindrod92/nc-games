@@ -9,18 +9,14 @@ const Reviews = () => {
 
     const { category_name } = useParams();
 
-    // const [search, setSearch] = useParams();
-    // const category = search.get('category');
-
     useEffect(() => {
         FetchReviews(category_name)
             .then((res) => {
-                console.log(res);
                 setReviews(res);
             });
             // Dependency array updated to re-run search
     }, [category_name]);
-    
+
     return (
         <div className="review-list">
             <h2 className="reviewsPageTitle">Reviews</h2>
