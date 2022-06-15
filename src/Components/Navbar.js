@@ -10,12 +10,6 @@ const Navbar = () => {
     useEffect(() => {
         FetchCategories()
         .then((allCategories) => {
-            // const categoryArray = [];
-            // for (let i = 0; i < res.categories.length; i++) {
-            //     categoryArray.push(res.categories[i].slug)
-            // }
-            
-            // console.log(allCategories);
             setCategories(allCategories);
         })
     }, [])

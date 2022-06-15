@@ -14,7 +14,7 @@ const Reviews = () => {
             .then((res) => {
                 setReviews(res);
             });
-            // Dependency array updated to re-run search
+        // Dependency array updated to re-run search
     }, [category_name]);
 
     return (
@@ -24,7 +24,7 @@ const Reviews = () => {
             <ul className="reviews">
                 {reviews.map((review) => {
                     const { review_id, title, category, designer, review_body, review_img_url, owner, votes, comment_count } = review;
-                        
+
                     return (
                         <ReviewInfo
                             key={review_id}
@@ -36,7 +36,7 @@ const Reviews = () => {
                             owner={owner}
                             votes={votes}
                             comments={comment_count}
-                        /* <p>{review.created_at}</p> */
+                            created_at={created_at}
                         />
                     )
                 })}

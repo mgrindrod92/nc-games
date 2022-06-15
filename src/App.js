@@ -7,7 +7,7 @@ import Navbar from './Components/Navbar';
 import Homepage from "./Components/Homepage"
 import Reviews from "./Components/Reviews"
 //import Categories from './Components/Categories';
-import SingleReview from './Components/SingleReview';
+import SingleReview from './Components/SingleReview.js';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
           <Route path={'/'} element={<Homepage />} />
           <Route path={'/reviews'} element={<Reviews />} />
           <Route path={'/reviews/:category_name'} element={<Reviews />} />
-          <Route path={'/reviews/review/:review_id'} element={< Reviews/>}  />
+          <Route path={'/reviews/review/:review_id'} element={< SingleReview/>}  />
         </Routes>
 
     </div>
