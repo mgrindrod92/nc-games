@@ -1,41 +1,45 @@
 import React, { useEffect, useState } from 'react';
 import { FetchSingleReview } from '../Api';
-import { Link, useParams } from 'react-router-dom';
-import ReviewInfo from './ReviewInfo';
+import { useParams } from 'react-router-dom';
 
 const SingleReview = (props) => {
 
-const { review_id } = useParams();
-const [currentReview, setCurrentReview] = useState({})
+    const { review_id } = useParams();
+    console.log(review_id)
+    const [currentReview, setCurrentReview] = useState({})
+    const [isLoading, setIsLoading] = useState(false);
 
-useEffect(() => {
-    if(review_id) {
-    FetchSingleReview(review_id)
-        .then((res) => {
-            setCurrentReview(res);
-        })
-    }
-}, [review_id])
+    useEffect(() => {
+        if (review_id) {
+            FetchSingleReview(review_id)
+                .then((res) => {
+                    setCurrentReview(res);
+                    setIsLoading(true);
+                })
+        }
+    }, [review_id])
+    // Or dependent on currentReview?
 
-return (
-    <div className="singleReview">
+    return (
+        <div className="singleReviewSection">
+            {/* <li  className="singleReview"> */}
 
-        <ReviewInfo
-            key={review_id}
-            title={title}
-            category={category}
-            designer={designer}
-            review_body={review_body}
-            review_img_url={review_img_url}
-            owner={owner}
-            votes={votes}
-            comments={comment_count}
-        /* <p>{review.created_at}</p> */
-        />
+            {isLoading ? <><h2 className="singleReviewHeader">{currentReview.title}</h2>
+            <img className="ReviewImage" src={currentReview.review.review_img_url} alt={currentReview.title} />
+            <ul className="singleReviewInfo">
+                <li><div className="category">Game Category: {currentReview.review.category}</div></li>
+                <li><div>Review created by: {currentReview.review.owner}</div></li>
+                <li><div>Game created by: {currentReview.review.designer}</div></li>
+                <li><div className="reviewBody">Review: {currentReview.review.review_body}</div></li>
+                <li><div>Votes: {currentReview.review.votes}</div></li>
+                <li><div>Comments: {currentReview.review.comment_count}</div></li>
+            </ul> </> : null }
+            {/* </li> */}
 
-    </div>
-)
+
+        </div>
+    )
 
 }
 
-export default FetchSingleReview;
+export default SingleReview;
