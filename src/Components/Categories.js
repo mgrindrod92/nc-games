@@ -10,8 +10,8 @@ const Categories = ({categories}) => {
                 {categories.map((category) => {
                     // Link relates to React Router
                     return (
-                        <li  className="itemsByCategory">
-                        <Link to={`/reviews/${category.slug}`} className="Link" key={category.slug}>
+                        <li  className="itemsByCategory" key={category.slug}>
+                        <Link to={`/reviews/${category.slug}`} className="Link">
                                 <p>{category.slug}</p>
                         </Link>
                         </li>

@@ -6,16 +6,19 @@ import Categories from './Categories';
 const Navbar = () => {
 
     const [categories, setCategories] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         FetchCategories()
         .then((allCategories) => {
             setCategories(allCategories);
+            setIsLoading(true)
         })
     }, [])
 
     return (
         <nav className="navBar">
+            {isLoading ? <>
             <ul className="navigationPoints">
             <li><Link to="/" className="nav__link">
                 Home
@@ -27,7 +30,7 @@ const Navbar = () => {
             <li><div>All Categories</div>
             <Categories categories={categories} />
              </li>
-            </ul>
+            </ul> </> : null}
         </nav>
     )
 }

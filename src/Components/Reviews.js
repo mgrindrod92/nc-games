@@ -34,6 +34,7 @@ const Reviews = () => {
             <p>{categoryDescription[0].description}</p>
             <ul className="reviews">
                 {reviews.map((review) => {
+                    
                     const { review_id, title, category, designer, review_body, review_img_url, owner, votes, comment_count, created_at } = review;
 
                     return (
@@ -48,6 +49,7 @@ const Reviews = () => {
                             owner={owner}
                             votes={votes}
                             comments={comment_count}
+
                         />
                     )
                 })}
