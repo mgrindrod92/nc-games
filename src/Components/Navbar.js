@@ -10,12 +10,6 @@ const Navbar = () => {
     useEffect(() => {
         FetchCategories()
         .then((allCategories) => {
-            // const categoryArray = [];
-            // for (let i = 0; i < res.categories.length; i++) {
-            //     categoryArray.push(res.categories[i].slug)
-            // }
-            
-            // console.log(allCategories);
             setCategories(allCategories);
         })
     }, [])
@@ -29,6 +23,7 @@ const Navbar = () => {
             <li><Link to="/reviews" className="nav__link">
                 Game Reviews
             </Link> </li>
+            {/* Add styling to make this clearer? */}
             <li><div>All Categories</div>
             <Categories categories={categories} />
              </li>

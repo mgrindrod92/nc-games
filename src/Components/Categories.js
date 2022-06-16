@@ -10,11 +10,11 @@ const Categories = ({categories}) => {
                 {categories.map((category) => {
                     // Link relates to React Router
                     return (
-                        <Link to={`/reviews/${category.slug}`} className="Link" key={category.slug}>
                         <li  className="itemsByCategory">
+                        <Link to={`/reviews/${category.slug}`} className="Link" key={category.slug}>
                                 <p>{category.slug}</p>
-                        </li>
                         </Link>
+                        </li>
 
                     )
                 })}

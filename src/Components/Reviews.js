@@ -1,37 +1,45 @@
-import { FetchReviews } from "../Api";
+import { FetchCategories, FetchReviews } from "../Api";
 import React, { useEffect, useState } from 'react';
 // import { Link } from 'react-router-dom';
 import ReviewInfo from "./ReviewInfo";
 import { useParams } from "react-router-dom";
 
 const Reviews = () => {
-    const [reviews, setReviews] = useState([]);
+    const [reviews, setReviews] = useState([])
+    const [category, setCategory] = useState([])
+    const [isLoading, setIsLoading] = useState(false);
 
     const { category_name } = useParams();
-
-    // const [search, setSearch] = useParams();
-    // const category = search.get('category');
 
     useEffect(() => {
         FetchReviews(category_name)
             .then((res) => {
-                console.log(res);
                 setReviews(res);
             });
-            // Dependency array updated to re-run search
+            FetchCategories()
+            .then((res) => {
+                setCategory(res);
+                setIsLoading(true)
+            })
+        // Dependency array updated to re-run search
     }, [category_name]);
-    
+
+    const categoryDescription = category.filter(desc => desc.slug === category_name)
+
     return (
         <div className="review-list">
-            <h2 className="reviewsPageTitle">Reviews</h2>
-
+            {isLoading ? <>
+            <h3 className="reviewsPageTitle">Reviews</h3>
+            <h4><p className="categories"><u>{category_name}</u></p></h4>
+            <p>{categoryDescription[0].description}</p>
             <ul className="reviews">
                 {reviews.map((review) => {
-                    const { review_id, title, category, designer, review_body, review_img_url, owner, votes, comment_count } = review;
-                        
+                    const { review_id, title, category, designer, review_body, review_img_url, owner, votes, comment_count, created_at } = review;
+
                     return (
                         <ReviewInfo
                             key={review_id}
+                            review_id={review_id}
                             title={title}
                             category={category}
                             designer={designer}
@@ -40,11 +48,10 @@ const Reviews = () => {
                             owner={owner}
                             votes={votes}
                             comments={comment_count}
-                        /* <p>{review.created_at}</p> */
                         />
                     )
                 })}
-            </ul>
+            </ul> </> : null }
         </div>
     )
 
