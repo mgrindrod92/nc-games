@@ -15,8 +15,8 @@ export function FetchReviews(category) {
 export function FetchSingleReview(id) {
     return gamesAPI
     .get(`/reviews/${id}`)
-    .then((res) => {
-        return res.data;
+    .then(({ data }) => {
+        return data;
     })
 }
 
@@ -26,4 +26,12 @@ export function FetchCategories() {
         .then(( { data } ) => {
             return data.categories;
         })
+}
+
+export function PatchVotes(id, votes) {
+    return gamesAPI
+    .patch(`/reviews/${id}`, {inc_votes: votes})
+    .then(({ data }) => {
+        console.log(data);
+    })
 }

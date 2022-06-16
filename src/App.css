@@ -69,11 +69,6 @@ h1 {
   border-radius: 15%;
   border-color: rgb(109, 30, 255);
   border-style: solid;
-  /* 
-  top: 50%;
-  left: 50%;
-  width: 50%;
-  margin-left: 25%; */
 }
 
 .SeeMore {
@@ -93,4 +88,26 @@ h1 {
 
 .singleReviewInfo {
   list-style: none;
+}
+
+.upvoteButton {
+  padding:0.5%;
+  font-size: 1.25 rem;
+  border-color: black;
+  border-style: solid;
+  margin: 5px;
+  text-align: center;
+}
+
+.downvoteButton {
+  padding:0.5%;
+  font-size: 1.25 rem;
+  border-color: black;
+  border-style: solid;
+  margin: 5px;
+  text-align: center;
+}
+
+:disabled {
+  background-color: rgb(92, 92, 92);
 }
