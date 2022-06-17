@@ -12,9 +12,9 @@ export function FetchReviews(category) {
         })
 }
 
-export function FetchSingleReview(id) {
+export function FetchSingleReview(review_id) {
     return gamesAPI
-    .get(`/reviews/${id}`)
+    .get(`/reviews/${review_id}`)
     .then(({ data }) => {
         return data;
     })
@@ -28,10 +28,19 @@ export function FetchCategories() {
         })
 }
 
-export function PatchVotes(id, votes) {
+export function PatchVotes(review_id, votes) {
     return gamesAPI
-    .patch(`/reviews/${id}`, {inc_votes: votes})
+    .patch(`/reviews/${review_id}`, {inc_votes: votes})
     .then(({ data }) => {
-        console.log(data);
+        return data;
+    })
+}
+
+export function FetchComments (review_id) {
+    return gamesAPI
+    .get(`/reviews/${review_id}/comments`)
+    .then(( { data } ) => {
+        // console.log(data);
+        return data;
     })
 }

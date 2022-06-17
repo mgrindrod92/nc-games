@@ -111,3 +111,18 @@ h1 {
 :disabled {
   background-color: rgb(92, 92, 92);
 }
+
+.AllComments {
+  list-style: none;
+  
+}
+
+.reviewBody {
+  font-style: italic;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.CommentBody {
+  font-style: italic;
+}

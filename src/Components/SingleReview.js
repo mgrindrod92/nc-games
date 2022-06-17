@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FetchSingleReview } from '../Api';
 import { useParams } from 'react-router-dom';
 import Votes from './Votes';
-import { PatchVotes } from '../Api';
+import Comments from './Comments'
 
 const SingleReview = (props) => {
 
@@ -32,15 +32,18 @@ const SingleReview = (props) => {
                 <li><div className="category">Game Category: {currentReview.review.category}</div></li>
                 <li><div>Review created by: {currentReview.review.owner}</div></li>
                 <li><div>Game created by: {currentReview.review.designer}</div></li>
-                <li><div className="reviewBody">{currentReview.review.review_body}</div></li>
-                <li><div>Comments: {currentReview.review.comment_count}</div></li>
-                                    
+                <br></br>
+                <li><div className="reviewBody">"{currentReview.review.review_body}"</div></li>             
             </ul> 
             <p>Did you find this review useful?</p>
             <Votes 
             votes = {currentReview.review.votes + voteChange}
             review_id={currentReview.review.review_id}
             setCurrentReview={setCurrentReview}
+            />
+            <p>Comments: {currentReview.review.comment_count}</p>
+            <Comments
+            review_id={currentReview.review.review_id}
             /> 
             </> : null }
             {/* </li> */}
