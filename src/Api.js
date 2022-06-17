@@ -44,3 +44,12 @@ export function FetchComments (review_id) {
         return data;
     })
 }
+
+export function PostComment (review_id, newComment) {
+    return gamesAPI
+    .post(`/reviews/${review_id}/comments`, newComment)
+    .then(( {data } ) => {
+        console.log(data)
+        return data;
+    })
+}
