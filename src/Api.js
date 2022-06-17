@@ -40,16 +40,15 @@ export function FetchComments (review_id) {
     return gamesAPI
     .get(`/reviews/${review_id}/comments`)
     .then(( { data } ) => {
-        // console.log(data);
         return data;
     })
 }
 
-export function PostComment (review_id, newComment) {
+export function PostComment (review_id, newComment) { 
+    console.log(newComment);
     return gamesAPI
     .post(`/reviews/${review_id}/comments`, newComment)
-    .then(( {data } ) => {
-        console.log(data)
+    .then(( { data } ) => {
         return data;
     })
 }
