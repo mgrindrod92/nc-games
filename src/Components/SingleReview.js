@@ -72,13 +72,7 @@ const SingleReview = (props) => {
                 <li><div>Game created by: {currentReview.review.designer}</div></li>
                 <li><div className="reviewBody">{currentReview.review.review_body}</div></li>
                 <li><div>Comments: {currentReview.review.comment_count}</div></li>
-                <li><div className="votes">
-                    
-                    Votes: {currentReview.review.votes + voteChange}
-                    </div></li>
-
-                    <li><div><Votes/></div></li>
-                
+                                    
             </ul> 
             <p>Did you find this review useful?</p>
             <Votes 

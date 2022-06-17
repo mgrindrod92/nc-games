@@ -43,6 +43,8 @@ const Votes = ({ review_id, votes, setCurrentReview }) => {
     }
 
     return (
+        <>
+        <p>Votes: {votes + voteChange}</p>
         <div className="votes__button-wrapper">
             <button className="upvoteButton"
                 onClick={handleUpVote}
@@ -55,6 +57,7 @@ const Votes = ({ review_id, votes, setCurrentReview }) => {
                 👎
             </button>
         </div>
+        </>
     )
 
 }
