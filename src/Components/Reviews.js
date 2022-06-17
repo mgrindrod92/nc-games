@@ -31,10 +31,10 @@ const Reviews = () => {
             {isLoading ? <>
             <h3 className="reviewsPageTitle">Reviews</h3>
             <h4><p className="categories"><u>{category_name}</u></p></h4>
-            <p>{categoryDescription[0].description}</p>
+            <p>{(categoryDescription.length === 0 ? "" : categoryDescription[0].description)}</p>
             <ul className="reviews">
                 {reviews.map((review) => {
-                    const { review_id, title, category, designer, review_body, review_img_url, owner, votes, comment_count, created_at } = review;
+                    const { review_id, title, category, designer, review_body, review_img_url, owner, votes, comment_count } = review;
 
                     return (
                         <ReviewInfo
