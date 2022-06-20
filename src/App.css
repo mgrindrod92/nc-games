@@ -125,3 +125,8 @@ h1 {
 .CommentBody {
   font-style: italic;
 }
+
+.reviews__sortButton {
+  margin: 5px;
+  padding: 1%;
+}

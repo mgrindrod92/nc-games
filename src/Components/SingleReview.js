@@ -32,6 +32,7 @@ const SingleReview = (props) => {
                 <li><div className="category">Game Category: {currentReview.review.category}</div></li>
                 <li><div>Review created by: {currentReview.review.owner}</div></li>
                 <li><div>Game created by: {currentReview.review.designer}</div></li>
+                <li className="singleReview__createdAt"><div>Review created on {currentReview.review.created_at.slice(0,10)} at {currentReview.review.created_at.slice(11,19)}</div></li>
                 <br></br>
                 <li><div className="reviewBody">"{currentReview.review.review_body}"</div></li>             
             </ul> 
