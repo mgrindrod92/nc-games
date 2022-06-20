@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { FetchComments } from '../Api';
 import CommentInfo from './CommentInfo';
 import AddComment from './AddComment';
+import Delete from './Delete';
 
 const CommentList = (props) => {
 
@@ -20,10 +21,6 @@ const CommentList = (props) => {
         })
     }, [review_id])
 
-    // if (isLoading) {
-    //     return <div><p>Loading... (We promise) </p></div>
-    // }
-
     return (
         <div>
         <AddComment review_id={review_id} />
@@ -35,12 +32,18 @@ const CommentList = (props) => {
                     const { author, body, votes, review_id, comment_id } = comment;
 
                     return (
+                        <div>
                         <CommentInfo
                         key={comment_id}
                         author={author}
                         body={body}
                         votes={votes}
                         />
+                        <div>
+                        <Delete comment={comment} />
+                        </div>
+                        </div>
+
                     )
                 })}
             </ul>
