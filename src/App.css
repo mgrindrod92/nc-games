@@ -130,3 +130,8 @@ h1 {
   margin: 5px;
   padding: 1%;
 }
+
+.Delete__noButton, .Delete__yesButton {
+  margin: 5px;
+  padding: 0.5%;
+}

@@ -51,3 +51,11 @@ export function PostComment (review_id, newComment) {
         return data;
     })
 }
+
+export function DeleteComment (comment_id) {
+    return gamesAPI
+    .delete(`comments/${comment_id}`)
+    .then((data) => {
+        return data.status;
+    })
+}
