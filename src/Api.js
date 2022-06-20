@@ -45,7 +45,6 @@ export function FetchComments (review_id) {
 }
 
 export function PostComment (review_id, newComment) { 
-    console.log(newComment);
     return gamesAPI
     .post(`/reviews/${review_id}/comments`, newComment)
     .then(( { data } ) => {

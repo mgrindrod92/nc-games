@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 // import { Link } from 'react-router-dom';
 import ReviewInfo from "./ReviewInfo";
 import { useParams } from "react-router-dom";
+import SortReviews from "./SortReviews";
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
@@ -28,13 +29,14 @@ const Reviews = () => {
 
     return (
         <div className="review-list">
+            <SortReviews setReviews={setReviews} reviews={reviews} />
             {isLoading ? <>
             <h3 className="reviewsPageTitle">Reviews</h3>
             <h4><p className="categories"><u>{category_name}</u></p></h4>
             <p>{(categoryDescription.length === 0 ? "" : categoryDescription[0].description)}</p>
             <ul className="reviews">
                 {reviews.map((review) => {
-                    const { review_id, title, category, designer, review_body, review_img_url, owner, votes, comment_count } = review;
+                    const { review_id, title, category, designer, review_body, review_img_url, owner, votes, comment_count, created_at } = review;
 
                     return (
                         <ReviewInfo
@@ -46,6 +48,7 @@ const Reviews = () => {
                             review_body={review_body}
                             review_img_url={review_img_url}
                             owner={owner}
+                            created_at={created_at}
                             votes={votes}
                             comments={comment_count}
                         />

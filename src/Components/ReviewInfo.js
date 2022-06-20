@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ReviewInfo = ( { review_id, title, category, designer, review_body, review_img_url, owner, votes, comment_count }) => {
+const ReviewInfo = ( { review_id, title, category, designer, review_body, review_img_url, owner, created_at, votes, comment_count }) => {
     const seeMore = review_body.substring(0,150) + "..."
 
     return (
