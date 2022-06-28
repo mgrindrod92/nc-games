@@ -1,11 +1,11 @@
 # Board Games Review App
 
-This app was my frontend project during the Northcoders bootcamp
-
 # Links
 
 Hosted version of this app: https://mgrindrod-codetest-site.netlify.app/ 
+
 Github repository the backend counterpart to this app: https://github.com/mgrindrod92/Backend-Project-NC-Games- 
+
 Hosted backend version of this app: https://nc-be-games-project.herokuapp.com/api/reviews
 
 # Summary
