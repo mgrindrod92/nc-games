@@ -8,7 +8,8 @@ import Homepage from "./Components/Homepage"
 import Reviews from "./Components/Reviews"
 //import Categories from './Components/Categories';
 import SingleReview from './Components/SingleReview';
-import Comments from './Components/Comments'
+// import Comments from './Components/Comments'
+import ErrorPage from './Components/Error';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
           <Route path={'/reviews'} element={<Reviews />} />
           <Route path={'/reviews/:category_name'} element={<Reviews />} />
           <Route path={'/reviews/review/:review_id'} element={< SingleReview/>}  />
-          {/* <Route path={'/reviews/review/:review_id/comments'} element={< Comments/>} /> */}
+          <Route path={'/*'} element={< ErrorPage />} />
         </Routes>
 
     </div>

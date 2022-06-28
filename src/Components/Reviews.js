@@ -4,11 +4,13 @@ import React, { useEffect, useState } from 'react';
 import ReviewInfo from "./ReviewInfo";
 import { useParams } from "react-router-dom";
 import SortReviews from "./SortReviews";
+import ErrorPage from "./Error";
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
     const [category, setCategory] = useState([])
     const [isLoading, setIsLoading] = useState(false);
+    const [isError, setIsError] = useState(null);
 
     const { category_name } = useParams();
 
@@ -16,7 +18,11 @@ const Reviews = () => {
         FetchReviews(category_name)
             .then((res) => {
                 setReviews(res);
-            });
+                setIsLoading(false);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
             FetchCategories()
             .then((res) => {
                 setCategory(res);
@@ -24,6 +30,10 @@ const Reviews = () => {
             })
         // Dependency array updated to re-run search
     }, [category_name]);
+
+    if (isError) {
+        return <ErrorPage errorMessage={isError} />
+    }
 
     const categoryDescription = category.filter(desc => desc.slug === category_name)
 

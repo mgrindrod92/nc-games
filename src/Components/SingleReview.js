@@ -3,6 +3,7 @@ import { FetchSingleReview } from '../Api';
 import { useParams } from 'react-router-dom';
 import Votes from './Votes';
 import Comments from './Comments'
+import ErrorPage from './Error';
 
 const SingleReview = (props) => {
 
@@ -10,6 +11,7 @@ const SingleReview = (props) => {
     const [currentReview, setCurrentReview] = useState({})
     const [isLoading, setIsLoading] = useState(false);
     const [voteChange, setVoteChange] = useState(0);
+    const [isError, setIsError] = useState(null);
 
     useEffect(() => {
         if (review_id) {
@@ -18,9 +20,16 @@ const SingleReview = (props) => {
                     setCurrentReview(res);
                     setIsLoading(true);
                 })
+                .catch((err) => {
+                    setIsError(err.response);
+                })
         }
     }, [review_id])
     // Or dependent on currentReview?
+
+    if (isError) {
+        return <ErrorPage errorMessage={isError} />
+    }
 
     return (
         <div className="singleReviewSection">
